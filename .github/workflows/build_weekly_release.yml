@@ -1,0 +1,44 @@
+# .github/workflows/generate_release.yml
+
+name: Generate Weekly Release
+
+on:
+  schedule:
+    - cron: '0 20 * * 0'  # UTC时间每周日20:00，对应UTC+8时区的周一04:00
+  workflow_dispatch:    # 允许手动触发
+    inputs:
+      dry_run:
+        description: '仅测试运行，不实际创建发布'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write        # 允许写入内容（包括标签和发布）
+
+jobs:
+  create_release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests waybackpy
+
+      - name: Run release script
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_REF_NAME: ${{ github.ref_name }}
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run == 'true' || false }}
+        run: |
+          python build_weekly_release.py
