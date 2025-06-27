@@ -191,9 +191,22 @@ def process_bookmark_file():
     with open(f'{BOOKMARK_COLLECTION_REPO_NAME}/README.md', 'r', encoding='utf-8') as f:
         bookmark_lines: List[str] = f.readlines()
 
-    with open(f'{BOOKMARK_SUMMARY_REPO_NAME}/data.json', 'r', encoding='utf-8') as f:
-        summarized_bookmark_dicts = json.load(f)
-        summarized_bookmarks = [SummarizedBookmark(**bookmark) for bookmark in summarized_bookmark_dicts]
+    data_json_path = f'{BOOKMARK_SUMMARY_REPO_NAME}/data.json'
+    if os.path.exists(data_json_path):
+        with open(data_json_path, 'r', encoding='utf-8') as f:
+            try:
+                summarized_bookmark_dicts = json.load(f)
+                if not isinstance(summarized_bookmark_dicts, list):
+                    logging.warning("data.json format is invalid, resetting to empty list")
+                    summarized_bookmark_dicts = []
+            except json.JSONDecodeError:
+                logging.warning("data.json is corrupted, resetting to empty list")
+                summarized_bookmark_dicts = []
+    else:
+        logging.info("data.json not found, starting with empty list")
+        summarized_bookmark_dicts = []
+    
+    summarized_bookmarks = [SummarizedBookmark(**bookmark) for bookmark in summarized_bookmark_dicts]
 
     summarized_urls = set([bookmark.url for bookmark in summarized_bookmarks])
 

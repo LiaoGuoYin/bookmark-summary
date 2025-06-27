@@ -86,9 +86,20 @@ def main():
     # 读取 data.json
     data_file = Path('data.json')
     if not data_file.exists():
-        raise FileNotFoundError("未找到 data.json 文件")
-    with data_file.open('r', encoding='utf-8') as f:
-        data = json.load(f)
+        print("未找到 data.json 文件，创建空文件")
+        with data_file.open('w', encoding='utf-8') as f:
+            json.dump([], f)
+        data = []
+    else:
+        with data_file.open('r', encoding='utf-8') as f:
+            try:
+                data = json.load(f)
+                if not isinstance(data, list):
+                    print("data.json 格式错误，重置为空列表")
+                    data = []
+            except json.JSONDecodeError:
+                print("data.json 格式错误，重置为空列表")
+                data = []
 
     # 筛选上周内的条目
     qualifying_entries = []
