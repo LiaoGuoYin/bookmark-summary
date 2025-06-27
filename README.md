@@ -2,6 +2,7 @@
 读取 bookmark-collection 中的书签，使用 jina reader 获取文本内容，然后使用 LLM 总结文本。详细实现请参见 process_changes.py。需要和 bookmark-collection 中的 Github Action 一起使用。
     
 ## Summarized Bookmarks
+- (2025-06-27) [单向数据流 · React 模式](202506/2025-06-27-%E5%8D%95%E5%90%91%E6%95%B0%E6%8D%AE%E6%B5%81-%C2%B7-react-%E6%A8%A1%E5%BC%8F.md)
 - (2025-06-27) [Skip the exit interview when you leave your job](202506/2025-06-27-skip-the-exit-interview-when-you-leave-your-job.md)
 - (2025-06-27) [[Chrome 扩展] 直接在浏览器中下载 DockerHub 镜像（找不到好的镜像代理的新选择） - V2EX](202506/2025-06-27-%5Bchrome-%E6%89%A9%E5%B1%95%5D-%E7%9B%B4%E6%8E%A5%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E4%B8%8B%E8%BD%BD-dockerhub-%E9%95%9C%E5%83%8F%EF%BC%88%E6%89%BE%E4%B8%8D%E5%88%B0%E5%A5%BD%E7%9A%84%E9%95%9C%E5%83%8F%E4%BB%A3%E7%90%86%E7%9A%84%E6%96%B0%E9%80%89%E6%8B%A9%EF%BC%89---v2ex.md)
 - (2025-06-27) [MostlyAdequate/mostly-adequate-guide](202506/2025-06-27-mostlyadequate-mostly-adequate-guide.md)
