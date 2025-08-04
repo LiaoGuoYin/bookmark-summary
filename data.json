@@ -70,5 +70,11 @@
     "title": "A quote from Recurse Center",
     "url": "https://simonwillison.net/2025/Jul/24/recurse-center/",
     "timestamp": 1754118983
+  },
+  {
+    "month": "202508",
+    "title": "Client-Side Rendering in Flame Graphs",
+    "url": "https://www.developerway.com/posts/client-side-rendering-flame-graph",
+    "timestamp": 1754294668
   }
 ]
