@@ -2,6 +2,7 @@
 读取 bookmark-collection 中的书签，使用 jina reader 获取文本内容，然后使用 LLM 总结文本。详细实现请参见 process_changes.py。需要和 bookmark-collection 中的 Github Action 一起使用。
     
 ## Summarized Bookmarks
+- (2025-09-15) [Ejectable Apps](202509/2025-09-15-ejectable-apps.md)
 - (2025-09-04) [再谈AI时代的平权假象](202509/2025-09-04-%E5%86%8D%E8%B0%88ai%E6%97%B6%E4%BB%A3%E7%9A%84%E5%B9%B3%E6%9D%83%E5%81%87%E8%B1%A1.md)
 - (2025-08-12) [Asymmetry of verification and verifier’s law — Jason Wei](202508/2025-08-12-asymmetry-of-verification-and-verifier%E2%80%99s-law-%E2%80%94-jason-wei.md)
 - (2025-08-04) [Client-Side Rendering in Flame Graphs](202508/2025-08-04-client-side-rendering-in-flame-graphs.md)
